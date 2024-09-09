@@ -1,4 +1,4 @@
-<h1 align="center"> DevLinks </h1>
+<h1 align="center"> Relatório Arduíno </h1>
 
 <p align="center">
 Projeto desenvolvido para apresentação de relatório de aulas prática com arduíno. <br/>
@@ -17,7 +17,7 @@ Projeto desenvolvido para apresentação de relatório de aulas prática com ard
 <br>
 
 <p align="center">
-  <img alt="projeto DevLinks" src=".github/preview.png" width="100%">
+  <img alt="Projeto Relatório" src=".github/preview.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
@@ -33,11 +33,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 Relatório de Aulas Práticas.
 
-- [Acesse o projeto finalizado, online](https://michaeld835.github.io/social-links)
+- [Acesse o projeto finalizado, online](https://relatorio-arduino.vercel.app/)
 
 ## 🔖 Layout
 
-Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/community/file/1187422022288947321). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
+Você pode visualizar o layout do projeto através [DESSE LINK](#). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
 
 ## :memo: Licença
 
