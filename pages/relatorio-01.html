@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório 01</title>
+    <link rel="stylesheet" type="text/css" href="relatorio.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="cabecalho">
+            <div class="buttons"></div>
+                <span class="home">
+                    <a href="./index.html">Home</a>
+                </span>
+            </div>
+            <div class="titulo"></div>
+                <h3>Relatório Projeto Semáforo</h3>
+                <p>Descrição</p>
+            </div>
+        </div>
+        
+        <div class="slider">
+            <div class="slides" style="--img: url('./assets/relatorio1/img1.jpg')">
+                <div class="content">
+                    <h2>Finalizado</h2>
+                    <p>Modelo final montado e funcional<p>
+                </div>
+            </div>
+            <div class="slides" style="--img: url('./assets/relatorio1/img2.jpg')">
+                <div class="content">
+                    <h2>Finalizado2</h2>
+                    <p>Modelo final montado e funcional</p>
+                </div>
+            </div>
+            <div class="slides" style="--img: url('./assets/relatorio1/img3.jpg')">
+                <div class="content">
+                    <h2>Programação</h2>
+                    <p>Programação em 'C' utilizada para funcionamento do potenciômetro</p>
+                </div>
+            </div>
+            <div class="slides" style="--img: url('./assets/relatorio1/img4.jpg')">
+                <div class="content">
+                    <h2>Thinkercad1</h2>
+                    <p>Esquema simulado feito no Thinkercad</p>
+                </div>
+            </div>           
+            <div class="slides" style="--img: url('./assets/relatorio1/img1.jpg')">
+                <div class="content">
+                    <h2>Video</h2>
+                    <p>Esquema simulado feito no Thinkercad</p>
+                </div>
+            </div>
+
+            <div class="slides" style="--img: url('./assets/relatorio1/img2.jpg')">
+                <div class="content">
+                    <h2>Video1</h2>
+                    <p>Esquema simulado feito no Thinkercad</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <span class="prev"></span>
+            <span class="next"></span>
+        </div>
+    </div>
+
+    <script>
+        let next = document.querySelector('.next');
+        let prev = document.querySelector('.prev');
+        let slider = document.querySelector('.slider');
+
+        next.addEventListener('click', function(){
+            let slides = document.querySelectorAll('.slides');
+            slider.appendChild(slides[0]);
+        })
+
+        prev.addEventListener('click', function(){
+            let slides = document.querySelectorAll('.slides');
+            slider.prepend(slides[slides.length - 1]);
+        })
+    </script>
+</body>
+
+</html>
