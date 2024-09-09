@@ -106,6 +106,15 @@ body * {
   text-align: center;
 }
 
+#nomes a {
+  text-decoration: none;;
+}
+
+#nomes a:hover {
+  background: var(--surface-color);
+  border: 1px solid var(--surface-color);
+}
+
 /* Links */
 ul {
   list-style: none;
