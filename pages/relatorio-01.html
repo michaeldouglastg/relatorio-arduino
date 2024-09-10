@@ -8,18 +8,22 @@
 </head>
 
 <body>
+    <div id="switch" onclick="toggleMode()">
+        <button></button>
+        <span></span>
+    </div>
+    <div class="titulo">
+        <h2>Relatório Projeto Semáforo</h2>
+    </div>
+    <div class="menu">
+        <button><a href="../index.html">HOME</a></button>
+    </div>
+    <div class="cabecalho">
+        <p>Descrição</p>
+    </div>
+
     <div class="container">
-        <div class="cabecalho">
-            <div class="buttons"></div>
-                <span class="home">
-                    <a href="../index.html">Home</a>
-                </span>
-            </div>
-            <div class="titulo"></div>
-                <h3>Relatório Projeto Semáforo</h3>
-                <p>Descrição</p>
-            </div>
-        </div>
+        
         
         <div class="slider">
             <div class="slides" style="--img: url('../assets/relatorio1/img1.jpg')">
@@ -52,7 +56,6 @@
                     <p>Esquema simulado feito no Thinkercad</p>
                 </div>
             </div>
-
             <div class="slides" style="--img: url('../assets/relatorio1/img2.jpg')">
                 <div class="content">
                     <h2>Video1</h2>
@@ -66,22 +69,8 @@
             <span class="next"></span>
         </div>
     </div>
-
-    <script>
-        let next = document.querySelector('.next');
-        let prev = document.querySelector('.prev');
-        let slider = document.querySelector('.slider');
-
-        next.addEventListener('click', function(){
-            let slides = document.querySelectorAll('.slides');
-            slider.appendChild(slides[0]);
-        })
-
-        prev.addEventListener('click', function(){
-            let slides = document.querySelectorAll('.slides');
-            slider.prepend(slides[slides.length - 1]);
-        })
-    </script>
+    
+    <script src="./relatorio.js"></script>
 </body>
 
 </html>
