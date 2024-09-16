@@ -25,7 +25,8 @@
 }
 
 body {
-  background: var(--bg-url) no-repeat top center/cover;
+  background: var(--bg-url) no-repeat top center;
+  background-color: black;
   height: 100vh;
 }
 
