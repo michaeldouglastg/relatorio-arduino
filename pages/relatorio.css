@@ -26,40 +26,49 @@
 
 body {
   background: var(--bg-url) no-repeat top center/cover;
+  max-width: 1024px;
+  overflow: hidden;
 }
 
 body * {
   font-family: "Inter", sans-serif;
   color: var(--text-color);
-  border: solid 1px;
+  /*border: solid 1px;*/
 }
 
-.main {
-  margin: ;
-  display: flex;
-  width: 100%;  
+.menu {
+  margin: 40px 80px;
+  width: 70%;
 }
 
-.titulo {
-  display: flex;
-  width: 65%;
+span a {
+  padding: 5px 5px;
+  border-radius: 10px;
+  background: var(--surface-color-hover);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.2s;
 }
 
-.descricao p {
-  display: flex;
-  width: 35%;
-  padding: 10px; 
+span a:hover {
+  background: var(--surface-color);
+  font-weight: 600;
+  color: rgb(169, 122, 255);
 }
 
 #container {
+  display: flex;
   position: absolute;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 1px green;
 }
 
 #switch {
@@ -103,25 +112,28 @@ body * {
   border-radius: 9999px;
 }
 
-.menu a {
-  position: absolute;
-  margin: 30px 500px;
-  background: var(--social-link-hover);
-  width: 100px;
-  height: 20px;
-  border-radius: 50px;
-  border: var(--surface-color);
-  text-decoration: none;
-
-  
-}
-
 .slider {
   position: absolute;
   inset: 80px 600px 80px 80px;
-  background: #ccc;
+  background: #00000000;
   border-radius: 20px;
   max-width: 800px;
+}
+
+.resumo {
+  padding: 0 20px;
+  display: block;
+  position: relative;
+  z-index: 1;
+  justify-content: right;
+  left: 100%;
+  height: 350px;
+  max-width: 600px;
+  line-height: 1.8rem;
+}
+
+.titulo {
+  line-height: 5rem;
 }
 
 .slider .slides {
@@ -142,8 +154,8 @@ align-items: flex-end;
 max-width: 800px;
 }
 
-.slider .slides:nth-child(1),
-.slider .slides:nth-child(2) {
+.slider .slides:nth-child(2),
+.slider .slides:nth-child(3) {
   position: absolute;
   top: 0;
   left: 0;
@@ -154,22 +166,22 @@ max-width: 800px;
   background-size: cover;
 }
 
-.slider .slides:nth-child(3) {
+.slider .slides:nth-child(4) {
   left: calc(50% + 240px);
   background-size: cover;
 }
 
-.slider .slides:nth-child(4) {
+.slider .slides:nth-child(5) {
   left: calc(50% + 500px);
   background-size: cover;
 }
 
-.slider .slides:nth-child(5) {
+.slider .slides:nth-child(6) {
   left: calc(50% + 760px);
   background-size: cover;
 }
 
-.slider .slides:nth-child(6) {
+.slider .slides:nth-child(7) {
   left: calc(50% + 1020px);
   background-size: cover;
 }

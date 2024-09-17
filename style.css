@@ -25,9 +25,10 @@
 }
 
 body {
-  background: var(--bg-url) no-repeat top center;
+  background: var(--bg-url) no-repeat top center/cover;
   background-color: black;
   height: 100vh;
+  overflow: hidden;
 }
 
 body * {
