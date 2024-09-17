@@ -12,7 +12,7 @@
         <span><a href="../index.html">Home</a></span>
         <span><a href="../pages/relatorio-01.html">Relatório 1</a></span>
         <span><a href="../pages/relatorio-02.html">Relatório 2</a></span>
-        <span><a href="#">Relatório 3</a></span>
+        <span><a href="../pages/relatorio-03.html">Relatório 3</a></span>
     </div>
 
     <div class="container">
@@ -25,6 +25,27 @@
                     <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus illo animi omnis dolorum facere harum molestiae non? Repudiandae, dicta nesciunt culpa est optio dolore asperiores, omnis, pariatur quo officiis earum.
                     </p>
+                    <code>
+                        void setup() {
+                            pinMode(7, OUTPUT);
+                            pinMode(4, OUTPUT);
+                            pinMode(2, OUTPUT);
+                          }
+                          
+                          void loop() {
+                            digitalWrite(7, HIGH);
+                            delay(2000);
+                            digitalWrite(7, LOW);
+                            
+                            digitalWrite(4, HIGH);
+                            delay(1000);
+                            digitalWrite(4, LOW);
+                            
+                            digitalWrite(2, HIGH);
+                            delay(2000);
+                            digitalWrite(2, LOW);
+                          }
+                    </code>
                 </div>
             </div>
             
@@ -52,18 +73,36 @@
                     <p>Aula</p>
                 </div>
             </div>           
-            <div class="slides" style="--img: url('../assets/relatorio1/img1.jpg')">
+            <div class="slides" style="--img: url('../assets/relatorio1/img5.jpg')">
                 <div class="content">
                     <h2>Video</h2>
                     <p>Esquema simulado feito no Thinkercad</p>
                 </div>
             </div>
-            <div class="slides" style="--img: url('../assets/relatorio1/img2.jpg')">
+            <div class="slides">
+                <video autoplay muted loop class="background-video">
+                    <source src="../assets/relatorio1/video.mp4" type="video/mp4">
+                    Seu navegador não suporta o vídeo.
+                </video>
                 <div class="content">
                     <h2>Video</h2>
                     <p>Esquema simulado feito no Thinkercad</p>
                 </div>
             </div>
+            <div class="slides">
+                <video autoplay muted loop class="background-video">
+                    <source src="../assets/relatorio1/video.mp4" type="video/mp4">
+                    Seu navegador não suporta o vídeo.
+                </video>
+                <div class="content">
+                    <h2>Video</h2>
+                    <p>Esquema simulado feito no Thinkercad</p>
+                </div>
+            </div>
+            
+            
+            
+            
         </div>
 
         <div class="buttons">
