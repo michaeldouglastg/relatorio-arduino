@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: solid 1px yellow;
+}
+
+:root {
+  --text-color: rgb(200, 200, 200);
+  --text-color-active: rgb(255, 255, 255);
+  --bg-color: rgba(220, 220, 220, 0.150);
+  --bg-color-light: rgba(50, 50, 50, 0.500);
+  --main-color: rgb(119, 0, 255);
+  --bg-url: url(../assets/bg-desktop.jpg);
+  --bg-url-light: url(../assets/bg-desktop-light.jpg);
+}
+
+body {
+  background: var(--bg-url)center top/cover;
+}
+
+body * {
+  color: var(--text-color);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 5fr 5fr;
+  grid-template-rows: 1fr 8.5fr 0.5fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "header header"
+    "slider relatory"
+    "footer footer";
+}
+
+/*===== Grid header =====*/
+.header {
+  grid-area: header;
+  display: flex;
+  padding: 10px 40px;
+  height: 100%;
+  border: solid 1px;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu span{
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: var(--bg-color);
+
+}
+
+.menu span:nth-child(1) {
+  margin: 0 20px 0 0;
+}
+
+.menu span a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.logo img {
+  width: 50px;
+  border: solid 1px;
+}
+
+.menu span:hover {
+  color: var(--text-color-active);
+  background: rebeccapurple;
+}
+
+.menu span a:hover {
+  color: var(--text-color-active);
+}
+/*===== Grid header =====*/
+
+/*===== Grid slider =====*/
+.slider {
+  grid-area: slider;
+  position: relative;
+  margin: 20px 10px 10px 40px;
+  padding: 20px;
+  height: 600px;
+  width: 70%;
+  border-radius: 20px;
+
+}
+
+/* .slider {
+  position: absolute;
+  max-width: 50%;
+  inset: 15% 50% 10% 40px;
+  border-radius: 20px;
+  background: #00000000;
+  background-size: contain;
+  box-shadow: 0 25px 50px var(--shadow-color);
+} */
+
+.slider .slides {
+  position: relative;
+  /* display: flex; */
+  
+  left: 520px;
+  width: 150px;
+  height: 200px;
+  border-radius: 20px;
+  background: var(--img)center/cover;
+  /* transition: 1s;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px var(--shadow-color);
+  justify-content: flex-start;
+  align-items: flex-end; */
+}
+/*===== Grid slider =====*/
+
+/*===== Grid relatory =====*/
+.relatory {
+  grid-area: relatory;
+  padding: 20px;
+  height: 100%;
+  border: solid 1px;
+}
+/*== Menu ==*/
+.tab-container {
+  position: relative;
+  display: flex;
+  gap: 5px;
+}
+
+.tab-button {
+  padding: 0 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  background: var(--bg-color);
+  z-index: 1;
+}
+
+.tab-button.active {
+  padding: 0 10px;
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--text-color-active);
+  background: transparent;
+}
+
+.tab-container.second .tab-background {
+  background: var(--main-color);    
+}
+
+.tab-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.3s, left 0.3s;
+  background: var(--main-color);
+}
+
+/*== Conteúdo ==*/
+.tab-content {
+  margin: 20px 0;
+}
+
+.ta-tab-item {
+  display: none;
+  padding: 20px;
+  height: 500px;
+  font-size: 20px;
+  line-height: 1.5;
+  border-radius: 20px;
+  background: var(--bg-color);
+}
+
+.ta-tab-item ul, ol {
+  padding-left: 20px;
+}
+
+.ta-tab-item.active {
+  display: block;
+}
+
+.code {
+  position: relative;
+  padding: 20px 40px 10px;
+  width: 50%;
+  height: 60vh;
+  border-style: none;
+  border-radius: 20px;
+  overflow: hidden;
+  color: var(--text-color);
+  background-color: rgba(0, 0, 0, 0.559);
+}
+/*===== Grid relatory =====*/
+
+/*===== Grid footer =====*/
+.footer {
+  grid-area: footer;
+  padding: 20px;
+  height: 100%;
+  border: solid 1px;
+}
+/*===== Grid footer =====*/
