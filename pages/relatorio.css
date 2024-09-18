@@ -16,7 +16,6 @@
   --button-link-hover: rgba(255, 255, 255, 0.2);
 }
 
-
 body {
   animation: fadein 2s;
   font-family: "Inter", sans-serif;
@@ -26,16 +25,27 @@ body {
   overflow-x: hidden;
 }
 
+span p {
+  position: fixed;
+  background: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 20px;
+  margin: 10px 40px;
+  font-size: 8px;
+  text-transform: uppercase;
+  justify-content: right;
+  align-items: flex-end;
+  display: flex;
+  flex
+}
+
 .container {  
   display: grid;
-  position: relative;
   grid-template-columns: 50% 20% 30%;
   grid-template-rows: 10% 50% 30% 10%;
-  grid-auto-columns: 1fr;
   gap: 0px 0px;
-  grid-auto-flow: row;
   grid-template-areas:
-  "header header header"
+  "header title title"
   "slider description description"
   "slider slide slide"
   "button footer footer";
@@ -46,6 +56,7 @@ body {
   justify-content: center;
 }
 
+/*==========GRID Header==========*/
 .header {
   grid-area: header;
   margin: 80px 40px 10px;
@@ -73,9 +84,11 @@ body {
 .header span a:hover {
   background: var(--surface-color);
   font-weight: 600;
-  color: rgb(169, 122, 255);
+  color: rgb(231, 216, 255);
 }
+/*==========GRID Header==========*/
 
+/*==========GRID Slider==========*/
 .slider {
   position: absolute;
   max-width: 50%;
@@ -100,10 +113,10 @@ body {
   box-shadow: 0 25px 50px var(--shadow-color);
   justify-content: flex-start;
   align-items: flex-end;
-  }
+}
   
-  .slider .slides:nth-child(2),
-  .slider .slides:nth-child(3) {
+.slider .slides:nth-child(2),
+.slider .slides:nth-child(3) {
     position: absolute;
     top: 0;
     left: 0;
@@ -112,29 +125,29 @@ body {
     transform: translateY(0);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0);
     background-size: cover;
-  }
+}
   
-  .slider .slides:nth-child(4) {
+.slider .slides:nth-child(4) {
     left: calc(50% + 220px);
     background-size: cover;
-  }
+}
 
-  .slider .slides:nth-child(5) {
+.slider .slides:nth-child(5) {
     left: calc(50% + 440px);
     background-size: cover;
-  }
+}
   
-  .slider .slides:nth-child(6) {
+.slider .slides:nth-child(6) {
     left: calc(50% + 660px);
     background-size: cover;
-  }
+}
   
-  .slider .slides:nth-child(7) {
+.slider .slides:nth-child(7) {
     left: calc(50% + 880px);
     background-size: cover;
-  }
+}
 
-  .content {
+.content {
     position: relative;
     padding: 20px;
     max-width: 100%;
@@ -145,51 +158,22 @@ body {
     opacity: 0;
     background: rgba(0, 0, 0, 0.200);
     border-radius: 0 20px 20px 0 ;
-  }
-
-  .content::backdrop {
-    filter: blur(20px);
-  }
+}
   
-  .content h2 {
+.content h2 {
     font-size: 1.5em;
-  }
+}
 
-  .slider .slides:nth-child(1) .content,
-  .slider .slides:nth-child(2) .content {
+.slider .slides:nth-child(1) .content,
+.slider .slides:nth-child(2) .content {
     opacity: 1;
     transform: translateY(0px);
     transition-delay: 0.5s;
-  }
-
-.description {
-  grid-area: description;
-  position: absolute;
-  margin: 10px 20px 0 0;
-  padding: 20px;
-  inset: 0px;
-  height: 90%;
-  
 }
 
-.descricao {
-  position: relative;
-  /* display: flex; */
-  line-height: 1.6;
-  gap: 10px;
-}
+/*==========GRID Slider==========*/
 
-.descricao .titulo {
-  text-align: center;
-}
-
-.titulo h2 {
-  text-align: center;
-  border-radius: 10px;
-  margin: 0 0 10px 0;
-  border-color: var(--shadow-color);
-}
-
+/*==========GRID Button==========*/
 .button {
   grid-area: button;
   position: relative;
@@ -229,33 +213,33 @@ body {
 .button span:active {
   opacity: 0.5;
 }
+/*==========GRID Button==========*/
 
-.footer {
-  grid-area: footer;
-  position: relative;
-  margin: 0 0 0 20px;
+/*==========GRID Tittle==========*/
+.title {
+  grid-area: title;
+  margin: 80px 0px 0px;
+  padding: 10px 20px;
+}
+
+.titulo h2 {
   text-align: center;
+  border-radius: 10px;
+  margin: 0 0 10px 0;
+  border-color: var(--shadow-color);
 }
+/*==========GRID Tittle==========*/
 
-
-
-.descricao {
-  width: 100vh;
-}
-
-.code {
-  position: relative;
-  width: 100%;
-  height: 350px;
-  font-size: 0.8rem;
-  padding: 10px 40px;
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.50);
-  color: var(--text-color);
-  border-style: none;
-  right: 0px;
-  box-shadow: 0 15px 25px hsla(0, 0%, 100%, 0.30);
+/*==========GRID Description==========*/
+.description {
+  grid-area: description;
+  position: relative  ;
+  margin: 10px 20px 0 0;
+  padding: 20px;
+  inset: 0px;
+  height: 90%;
+  line-height: 1.6;
+  gap: 10px;
 }
 
 .tab-container {
@@ -306,17 +290,33 @@ body {
   height: 300px;
 }
 
+.ta-tab-item ul, ol {
+  padding-left: 20px;
+}
+
 .ta-tab-item.active {
   display: block;
 }
 
-/* body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #f0f0f0;
-} */
+.code {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  font-size: 0.8rem;
+  padding: 10px 40px;
+  border-radius: 20px;
+  /* overflow: hidden; */
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--text-color);
+  border-style: none;
+}
+/*==========GRID Description==========*/
+
+/*==========GRID Footer==========*/
+.footer {
+  grid-area: footer;
+  position: relative;
+  margin: 0 0 0 20px;
+  text-align: center;
+}
+/*==========GRID Footer==========*/
