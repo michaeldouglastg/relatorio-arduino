@@ -25,6 +25,7 @@
 }
 
 body {
+  animation: fadein 2s;
   background: var(--bg-url) no-repeat top center/cover;
   background-color: black;
   height: 100vh;

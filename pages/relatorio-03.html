@@ -1,53 +1,121 @@
-<!--
-<h1></h1>
-<p>
-  Teste com o sensor Ultrasônico para disparar 
-  Emiti uma onda sonora e capta o intervalo de tempo entre o envio e o recebimento
-
-  Foi feito um teste com sensor Ultrasônico para acionar uma lâmpada led
-
-  D = v.t
-    v=0,0342/cm/ms
-</p>
--->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Relatório 03</title>
-  <link rel="stylesheet" type="text/css" href="relatorio.css">
+  <title>Relatorio 03 - Sensor Ultrassônico</title>
+  <link rel="stylesheet" href="../fade.css">
+  <link rel="stylesheet" href="relatorio.css">
 </head>
 
 <body>
-  <div class="menu">
-    <span><a href="../index.html">Home</a></span>
-    <span><a href="../pages/relatorio-01.html">Relatório 1</a></span>
-    <span><a href="../pages/relatorio-02.html">Relatório 2</a></span>
-    <span><a href="../pages/relatorio-03.html">Relatório 3</a></span>
-  </div>
   <div class="container">
+    <div class="header">
+      <span><a href="../index.html">Home</a></span>
+      <span><a href="../pages/relatorio-01.html">Relatório 1</a></span>
+      <span><a href="../pages/relatorio-02.html">Relatório 2</a></span>
+      <span style="background-color: var(--shadow-color);"><a href="../pages/relatorio-03.html">Relatório 3</a></span>
+    </div>
+    
     <div class="slider">
-      <div class="resumo">
+      <div class="slides" style="--img: url(../assets/relatorio1/img1.jpg)">
+        <div class="content">
+            <h3>Titulo1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<p>
+        </div>
+      </div>
+      <div class="slides" style="--img: url(../assets/relatorio1/img1.jpg)">
+        <div class="content">
+            <h3>Titulo2</h3>
+            <p>Legenda<p>
+        </div>
+      </div>
+      <div class="slides" style="--img: url(../assets/relatorio1/img1.jpg)">
+        <div class="content">
+            <h3>Titulo3</h3>
+            <p>Legenda<p>
+        </div>
+      </div>
+      <div class="slides" style="--img: url(../assets/relatorio1/img1.jpg)">
+        <div class="content">
+            <h3>Titulo4</h3>
+            <p>Legenda<p>
+        </div>
+      </div>
+      <div class="slides" style="--img: url(../assets/relatorio1/img1.jpg)">
+        <div class="content">
+            <h3>Titulo5</h3>
+            <p>Legenda<p>
+        </div>
+      </div>
+      <div class="slides" style="--img: url(../assets/relatorio1/img1.jpg)">
+        <div class="content">
+            <h3>Titulo6</h3>
+            <p>Legenda<p>
+        </div>
+      </div>
+      <div class="slides" style="--img: url(../assets/relatorio1/img1.jpg)">
+        <div class="content">
+            <h3>Titulo7</h3>
+            <p>Legenda<p>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="description">
         <div class="titulo">
-          <h2>Relatório Projeto Semáforo</h2>
+            <h2>Relatório Projeto Sensor Ultrassônico</h2>
         </div>
         <div class="descricao">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.Repellendus illo animi omnis dolorum facere harum molestiaenon? Repudiandae, dicta nesciunt culpa est optio doloreasperiores, omnis, pariatur quo officiis earum.
-          </p>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus illo animi omnis dolorum facere harum molestiae non? Repudiandae, dicta nesciunt culpa est optio dolore asperiores, omnis, pariatur quo officiis earum.
+            </p>
+<textarea class="code">
+== CÓDIGO DO PROJETO ==
+
+int saida = 12;
+int entrada = 13;
+float leitura_dados;
+
+void setup() {
+  pinMode(saida, OUTPUT);
+  pinMode(entrada, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(saida, LOW);
+  delayMicroseconds(2);
+  digitalWrite(saida, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(saida, LOW);
+
+  long duracao = pulseIn(entrada, HIGH);
+
+  leitura_dados = duracao * 0.034 / 2;
+
+  Serial.print("Distancia: ");
+  Serial.print(leitura_dados);
+  Serial.println(" cm");
+
+  delay(1000);
+}
+            </textarea>
         </div>
-      </div>
+    </div>
 
-      
+    <div class="button">
+      <span class="prev"></span>
+      <span class="next"></span>
+    </div>
 
-      <div class="buttons">
-        <span class="prev"></span>
-        <span class="next"></span>
-      </div>
+    <div class="footer">
+      <p>Desenvolvido por</p>
     </div>
 
     <script src="./relatorio.js"></script>
+  </div>
 </body>
 
 </html>

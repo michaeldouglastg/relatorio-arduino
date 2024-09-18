@@ -1,93 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório 02</title>
-    <link rel="stylesheet" type="text/css" href="relatorio.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatorio 02 - Poteniômetro</title>
+  <link rel="stylesheet" href="../fade.css">
+  <link rel="stylesheet" href="relatorio.css">
 </head>
 
 <body>
-    <div class="menu">
-        <span><a href="../index.html">Home</a></span>
-        <span><a href="../pages/relatorio-01.html">Relatório 1</a></span>
-        <span><a href="../pages/relatorio-02.html">Relatório 2</a></span>
-        <span><a href="#">Relatório 3</a></span>
+  <div class="container">
+    <div class="header">
+      <span><a href="../index.html">Home</a></span>
+      <span><a href="../pages/relatorio-01.html">Relatório 1</a></span>
+      <span style="background-color: var(--shadow-color);"><a href="../pages/relatorio-02.html">Relatório 2</a></span>
+      <span><a href="../pages/relatorio-03.html">Relatório 3</a></span>
+    </div>
+    
+    <div class="slider">
+      <div class="slides" style="--img: url(../assets/relatorio2/img1.jpg)">
+        <div class="content">
+            <h3>Titulo1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<p>
+        </div>
+      </div>
+      <div class="slides" style="--img: url(../assets/relatorio2/img2.jpg)">
+        <div class="content">
+            <h3>Titulo2</h3>
+            <p>Legenda<p>
+        </div>
+      </div>
+      <div class="slides" style="--img: url(../assets/relatorio2/img3.jpg)">
+        <div class="content">
+            <h3>Titulo3</h3>
+            <p>Legenda<p>
+        </div>
+      </div>
+      <div class="slides" style="--img: url(../assets/relatorio2/img4.jpg)">
+        <div class="content">
+            <h3>Titulo4</h3>
+            <p>Legenda<p>
+        </div>
+      </div>
+      <div class="slides" style="--img: url(../assets/relatorio1/img1.jpg)">
+        <div class="content">
+            <h3>Titulo5</h3>
+            <p>Legenda<p>
+        </div>
+      </div>
+      <div class="slides" style="--img: url(../assets/relatorio1/img1.jpg)">
+        <div class="content">
+            <h3>Titulo6</h3>
+            <p>Legenda<p>
+        </div>
+      </div>
+      <div class="slides" style="--img: url(../assets/relatorio1/img1.jpg)">
+        <div class="content">
+            <h3>Titulo7</h3>
+            <p>Legenda<p>
+        </div>
+      </div>
+      
     </div>
 
-    <div class="container">
-        <div class="slider">
-            <div class="resumo">
-                <div class="titulo">
-                    <h2>Relatório Projeto potenciômetro</h2>
-                </div>
-                <div class="descricao">
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus illo animi omnis dolorum facere harum molestiae non? Repudiandae, dicta nesciunt culpa est optio dolore asperiores, omnis, pariatur quo officiis earum.
-                    </p>
-                </div>
-            </div>
-
-            <div class="slides" style="--img: url('../assets/relatorio2/img2.jpg')">
-                <div class="content">
-                    <h2>Finalizado</h2>
-                    <p>Modelo final montado e funcional<p>
-                </div>
-            </div>
-            <div class="slides" style="--img: url('../assets/relatorio2/img2.jpg')">
-                <div class="content">
-                    <h2>Finalizado2</h2>
-                    <p>Modelo final montado e funcional</p>
-                </div>
-            </div>
-            <div class="slides" style="--img: url('../assets/relatorio2/img3.jpg')">
-                <div class="content">
-                    <h2>Programação</h2>
-                    <p>Programação em 'C' utilizada para funcionamento do potenciômetro</p>
-                </div>
-            </div>
-            <div class="slides" style="--img: url('../assets/relatorio2/img4.jpg')">
-                <div class="content">
-                    <h2>Thinkercad1</h2>
-                    <p>Esquema simulado feito no Thinkercad</p>
-                </div>
-            </div>           
-            <div class="slides" style="--img: url('../assets/relatorio2/img1.jpg')">
-                <div class="content">
-                    <h2>Video</h2>
-                    <p>Esquema simulado feito no Thinkercad</p>
-                </div>
-            </div>
-
-            <div class="slides" style="--img: url('../assets/relatorio2/img1.jpg')">
-                <div class="content">
-                    <h2>Video1</h2>
-                    <p>Esquema simulado feito no Thinkercad</p>
-                </div>
-            </div>
+    <div class="description">
+        <div class="titulo">
+            <h2>Relatório Projeto Potenciômetro</h2>
         </div>
+        <div class="descricao">
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus illo animi omnis dolorum facere harum molestiae non? Repudiandae, dicta nesciunt culpa est optio dolore asperiores, omnis, pariatur quo officiis earum.
+            </p>
+<textarea class="code">
+== CÓDIGO DO PROJETO ==
 
-        <div class="buttons">
-            <span class="prev"></span>
-            <span class="next"></span>
+int potenciometro = A0;
+int led = 5;
+int valor_lido = 0;
+
+void setup() {
+  pinMode(potenciometro, INPUT);
+  pinMode(led, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  valor_lido = analogRead(potenciometro); 
+  valor_lido = map(valor_lido, 0, 1023, 0, 255);
+  analogWrite(led, valor_lido);
+  Serial.println(valor_lido);
+  delay(10);
+}
+            </textarea>
         </div>
     </div>
 
-    <script>
-        let next = document.querySelector('.next');
-        let prev = document.querySelector('.prev');
-        let slider = document.querySelector('.slider');
+    <div class="button">
+      <span class="prev"></span>
+      <span class="next"></span>
+    </div>
 
-        next.addEventListener('click', function(){
-            let slides = document.querySelectorAll('.slides');
-            slider.appendChild(slides[0]);
-        })
+    <div class="footer">
+      <p>Desenvolvido por</p>
+    </div>
 
-        prev.addEventListener('click', function(){
-            let slides = document.querySelectorAll('.slides');
-            slider.prepend(slides[slides.length - 1]);
-        })
-    </script>
+    <script src="./relatorio.js"></script>
+  </div>
 </body>
 
 </html>
