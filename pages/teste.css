@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: solid 1px yellow;
 }
 
 :root {
@@ -16,21 +15,38 @@
 }
 
 body {
-  background: var(--bg-url)center top/cover;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-url)no-repeat top center/cover;
 }
 
 body * {
   color: var(--text-color);
+  font-family: "Inter", sans-serif;
 }
 
 .container {
   display: grid;
+  position: absolute;
+  grid-template-columns: 4fr 1fr 5fr; 
+  grid-template-rows: 1fr 8fr 0.5fr 0.5fr;
+  grid-template-areas:
+    "header header header"
+    "slider slide relatory"
+    "buttons buttons relatory"
+    "footer footer footer";
+}
+
+.container {  display: grid;
   grid-template-columns: 5fr 5fr;
-  grid-template-rows: 1fr 8.5fr 0.5fr;
+  grid-template-rows: 1fr 8fr 0.5fr 0.5fr;
+  grid-auto-columns: 1fr;
   gap: 0px 0px;
+  grid-auto-flow: row;
   grid-template-areas:
     "header header"
     "slider relatory"
+    "buttons relatory"
     "footer footer";
 }
 
@@ -40,7 +56,6 @@ body * {
   display: flex;
   padding: 10px 40px;
   height: 100%;
-  border: solid 1px;
   align-items: center;
   gap: 10px;
 }
@@ -63,7 +78,6 @@ body * {
 
 .logo img {
   width: 50px;
-  border: solid 1px;
 }
 
 .menu span:hover {
@@ -78,49 +92,137 @@ body * {
 
 /*===== Grid slider =====*/
 .slider {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". slides";
+
   grid-area: slider;
-  position: relative;
-  margin: 20px 10px 10px 40px;
-  padding: 20px;
-  height: 600px;
-  width: 70%;
+  margin: 0 20px 0 40px;
   border-radius: 20px;
-
-}
-
-/* .slider {
-  position: absolute;
-  max-width: 50%;
-  inset: 15% 50% 10% 40px;
-  border-radius: 20px;
-  background: #00000000;
   background-size: contain;
-  box-shadow: 0 25px 50px var(--shadow-color);
-} */
+}
 
 .slider .slides {
   position: relative;
-  /* display: flex; */
-  
-  left: 520px;
-  width: 150px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
+  transition: 1s;
   border-radius: 20px;
   background: var(--img)center/cover;
-  /* transition: 1s;
-  border-radius: 20px;
-  box-shadow: 0 25px 50px var(--shadow-color);
-  justify-content: flex-start;
-  align-items: flex-end; */
+}
+  
+.slider .slides:nth-child(2),
+.slider .slides:nth-child(3),
+.slider .slides:nth-child(4) {
+    grid-area: slides;
+    right: 110%;
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    z-index: -1;
+}
+  
+.slider .slides:nth-child(5) {
+    grid-area: slides;
+    top: 0px;
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+}
+
+.slider .slides:nth-child(6) {
+    grid-area: slides;
+    top: 190px;
+    width: 100%;
+    height: 180px;
+}
+  
+.slider .slides:nth-child(7) {
+    grid-area: slides;
+    top: 380px;
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+}
+
+.content {
+    position: relative;
+    padding: 20px;
+    max-width: 100%;
+    transition: 0.25s;
+    transition-delay: 0s;
+    transform: translateY(40px);
+    z-index: 1;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.200);
+    border-radius: 0 20px 20px 0 ;
+}
+  
+.content h2 {
+    font-size: 1.5em;
+}
+
+.slider .slides:nth-child(1) .content,
+.slider .slides:nth-child(2) .content {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.5s;
 }
 /*===== Grid slider =====*/
+
+/*== Grid Buttons ==*/
+.buttons {
+  grid-area: buttons;
+  position: relative;
+  display: flex;
+  gap: 10px;
+  top: ;
+  justify-content: center;
+  z-index: 2;
+}
+
+.buttons span {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-color);
+  z-index: 2;
+}
+
+.buttons span::before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-top: 4px solid #fff;
+  border-left: 4px solid #fff;
+  transform: rotate(315deg) translate(2px,2px);
+  z-index: 2;
+}
+
+.buttons span:nth-child(2)::before {
+  transform: rotate(135deg) translate(2px,2px);
+  z-index: 2;
+}
+
+.buttons span:active {
+  opacity: 0.5;
+  z-index: 2;
+}
+/*== Grid Buttons ==*/
 
 /*===== Grid relatory =====*/
 .relatory {
   grid-area: relatory;
   padding: 20px;
   height: 100%;
-  border: solid 1px;
 }
 /*== Menu ==*/
 .tab-container {
@@ -140,7 +242,7 @@ body * {
 
 .tab-button.active {
   padding: 0 10px;
-  font-size: 1em;
+  font-size: 14px;
   font-weight: bold;
   color: var(--text-color-active);
   background: transparent;
@@ -159,17 +261,20 @@ body * {
   transition: width 0.3s, left 0.3s;
   background: var(--main-color);
 }
+/*== Menu ==*/
 
 /*== Conteúdo ==*/
 .tab-content {
+  position: relative;
   margin: 20px 0;
+  height: 90%;
 }
 
 .ta-tab-item {
   display: none;
   padding: 20px;
-  height: 500px;
-  font-size: 20px;
+  height: 100%;
+  font-size: 16px;
   line-height: 1.5;
   border-radius: 20px;
   background: var(--bg-color);
@@ -184,16 +289,16 @@ body * {
 }
 
 .code {
-  position: relative;
-  padding: 20px 40px 10px;
-  width: 50%;
-  height: 60vh;
+  padding: 40px 40px 10px;
+  width: 100%;
+  height: 100%;
   border-style: none;
   border-radius: 20px;
   overflow: hidden;
   color: var(--text-color);
-  background-color: rgba(0, 0, 0, 0.559);
+  background: rgba(0, 0, 0, 0.200);
 }
+/*== Conteúdo ==*/
 /*===== Grid relatory =====*/
 
 /*===== Grid footer =====*/
@@ -201,6 +306,6 @@ body * {
   grid-area: footer;
   padding: 20px;
   height: 100%;
-  border: solid 1px;
+  text-align: right;
 }
 /*===== Grid footer =====*/
