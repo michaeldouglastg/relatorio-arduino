@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border: solid 1px;
 }
 
 :root {
@@ -17,6 +18,7 @@
 body {
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
   background: var(--bg-url)no-repeat top center/cover;
 }
 
@@ -28,33 +30,19 @@ body * {
 .container {
   display: grid;
   position: absolute;
-  grid-template-columns: 4fr 1fr 5fr; 
+  grid-template-columns: 5fr 5fr; 
   grid-template-rows: 1fr 8fr 0.5fr 0.5fr;
-  grid-template-areas:
-    "header header header"
-    "slider slide relatory"
-    "buttons buttons relatory"
-    "footer footer footer";
-}
-
-.container {  display: grid;
-  grid-template-columns: 5fr 5fr;
-  grid-template-rows: 1fr 8fr 0.5fr 0.5fr;
-  grid-auto-columns: 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
   grid-template-areas:
     "header header"
-    "slider relatory"
+    "photos relatory"
     "buttons relatory"
     "footer footer";
 }
-
 /*===== Grid header =====*/
 .header {
   grid-area: header;
   display: flex;
-  padding: 10px 40px;
+  padding: 10px 20px;
   height: 100%;
   align-items: center;
   gap: 10px;
@@ -91,61 +79,73 @@ body * {
 /*===== Grid header =====*/
 
 /*===== Grid slider =====*/
-.slider {
+.photos {
+  grid-area: photos;
   display: grid;
-  grid-template-columns: 4fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    ". slides";
+  position: relative;
+  border: solid 5px red;
+  padding-left: 20px;
 
-  grid-area: slider;
-  margin: 0 20px 0 40px;
-  border-radius: 20px;
-  background-size: contain;
+  grid-template-columns: 4fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "slider carrossel";
 }
 
-.slider .slides {
+.photos .slider {
+  grid-area: slider;
+  position: relative;
+  border: solid 4px green;
+  padding-right: 10px;
+}
+
+.photos .slider .view {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 700px;
+  object-fit: ;
+  object-position: bottom;
+  transition: 1s;
+  border-radius: 20px;
+  background: var(--img);
+}
+
+.photos .carrossel{
+  border: solid 3px yellow;
+  grid-area: carrossel;
+}
+
+.photos .carrossel .slides {
+  width: 100%;
+  height: 30%;
   transition: 1s;
   border-radius: 20px;
   background: var(--img)center/cover;
 }
   
-.slider .slides:nth-child(2),
-.slider .slides:nth-child(3),
-.slider .slides:nth-child(4) {
-    grid-area: slides;
+.photos .carrossel .slides:nth-child(2),
+.photos .slides:nth-child(3),
+.photos .carrossel .slides:nth-child(4) {
     right: 110%;
     width: 100%;
-    height: 180px;
+    height: 30%;
     background-size: cover;
     z-index: -1;
+    opacity: 0;
 }
   
-.slider .slides:nth-child(5) {
-    grid-area: slides;
+.photos .carrossel .slides:nth-child(5) {
     top: 0px;
-    width: 100%;
-    height: 180px;
     background-size: cover;
 }
 
-.slider .slides:nth-child(6) {
-    grid-area: slides;
+.photos .carrossel .slides:nth-child(6) {
     top: 190px;
-    width: 100%;
-    height: 180px;
+    background-size: cover;
 }
   
-.slider .slides:nth-child(7) {
-    grid-area: slides;
+.photos .carrossel .slides:nth-child(7) {
     top: 380px;
-    width: 100%;
-    height: 180px;
     background-size: cover;
 }
 

@@ -1,17 +1,41 @@
 //Botão Slides
 let next = document.querySelector('.next');
 let prev = document.querySelector('.prev');
-let slider = document.querySelector('.slider');
+let sliderView = document.querySelector('.slider .view');  // Seleciona a div.view dentro do slider
+let slides = document.querySelectorAll('.carrossel .slides');  // Seleciona todos os slides dentro da div.carrossel
 
-next.addEventListener('click', function(){
-    let slides = document.querySelectorAll('.slides');
-    slider.appendChild(slides[0]);
-})
+let currentIndex = 0;
 
-prev.addEventListener('click', function(){
-    let slides = document.querySelectorAll('.slides');
-    slider.prepend(slides[slides.length - 1]);
-})
+// Função para atualizar a view do slider com a imagem e o conteúdo do slide atual
+function updateSlider(index) {
+    let currentSlide = slides[index];
+    let img = currentSlide.style.getPropertyValue('--img');  // Obtém a URL da imagem do slide
+    sliderView.style.setProperty('--img', img);  // Atualiza a imagem de fundo da div.view
+    
+    // Atualiza o conteúdo (título e texto) da div.view para coincidir com o slide atual
+    let viewContent = sliderView.querySelector('.content');
+    let slideContent = currentSlide.querySelector('.content');
+    viewContent.innerHTML = slideContent.innerHTML;
+}
+
+// Inicializa com a primeira imagem
+updateSlider(currentIndex);
+
+next.addEventListener('click', function() {
+    currentIndex = (currentIndex + 1) % slides.length;  // Avança para o próximo slide
+    updateSlider(currentIndex);
+});
+
+prev.addEventListener('click', function() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;  // Volta ao slide anterior
+    updateSlider(currentIndex);
+});
+
+
+
+
+
+
 
 //Alternar Modo Escuro
 function toggleMode() {
