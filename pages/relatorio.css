@@ -361,6 +361,9 @@ mínimo de 1201px, para telas muito grandes. Nesse último colocamos apenas o m�
 
 /* Mobile */
 @media (max-width: 768px) {
+  * {
+    border: solid 1px gold;
+  }
   :root {
     --bg-url: url(../assets/bg-mobile.jpg);
   }
@@ -370,12 +373,13 @@ mínimo de 1201px, para telas muito grandes. Nesse último colocamos apenas o m�
   }
 
   body {
-    width: 100%;
+    width: 100vw;
   }
 
   .container {
     display: grid;
-    grid-template-rows: 0.5fr 6fr 1fr 4fr 0.5fr;
+    grid-template-columns: 10fr;
+    grid-template-rows: 1.5fr 80% 10% 50% 0.5fr;
     grid-template-areas: 
     "header"
     "slider"
@@ -384,9 +388,81 @@ mínimo de 1201px, para telas muito grandes. Nesse último colocamos apenas o m�
     "footer";
   }
   
-  .header { grid-area: header; }
-  .slider { grid-area: slider; }
-  .buttons { grid-area: buttons; }
-  .relatory { grid-area: relatory; }
+  .header {
+    grid-area: header
+    padding: 15px 0 25px;
+    justify-content: center;
+    border: solid 1px gold;
+  }
+
+  .header .logo {
+    position: absolute;
+    z-index: -1;
+    opacity: 10%;
+  }
+
+  .header .logo img {
+    width: 30%;
+    top: 10px;
+  }
+
+  .switch {
+    position: absolute;
+    top: 50px;
+    z-index: 1;
+  }
+  
+
+  .slider {
+    grid-area: slider;
+    inset: 0 20px 110px;
+  }
+
+  .slider .slides {
+    width: 20%;
+    height: 20%;
+    min-width: 20%;
+    min-height: 20%;
+  }
+  .slider .slides:nth-child(3) {
+    top: calc(113%);
+    right: calc(20px + 0%);
+    border: solid 2px red;
+  }
+  .slider .slides:nth-child(4) {
+    top: calc(113%);
+    right: calc(20px + 25%);
+    border: solid 2px rgb(255, 225, 0);
+  }
+  .slider .slides:nth-child(5) {
+    top: calc(113%);
+    right: calc(20px + 50%);
+    border: solid 2px rgb(0, 255, 21);
+  }
+  .slider .slides:nth-child(6) {
+    top: calc(113%);
+    right: calc(20px + 75%);
+    border: solid 2px rgb(0, 26, 255);
+    opacity: 1;
+  }
+    
+
+  .buttons {
+    grid-area: buttons;
+    padding: 10px 10px;
+    gap: 50px;
+  }
+
+  .relatory {
+    grid-area: relatory;
+    inset: 0 20px;
+    height: 100%;
+  }
+
+
+
+
+
+
   .footer { grid-area: footer; }  
 }

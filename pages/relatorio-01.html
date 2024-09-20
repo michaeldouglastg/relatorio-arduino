@@ -104,7 +104,7 @@
           </ul>
         </div>
         <div class="ta-tab-item" data-tab="7">
-          <p>O funcionamento básico do código consiste em:</p>
+          <p>O funcionamento básico do código consiste em:</p><br>
           <ol>
             <li>Acionar o pino 7 (saída digital) por 2 segundos e depois desativá-lo.</li>
             <li>Acionar o pino 4 por 1 segundo e desativá-lo.</li>
@@ -112,7 +112,7 @@
           </ol>
           <p>Esse ciclo é repetido indefinidamente pela função loop().</p>
         </div>
-        <div class="ta-tab-item" data-tab="8">
+        <div class="ta-tab-item"  data-tab="8">
           <textarea class="code">
 void setup() {
 pinMode(7, OUTPUT);
@@ -143,6 +143,12 @@ digitalWrite(2, LOW);
     </div>
   </div>
 
+  <script>
+    var introducao = 
+    "Este documento visa descrever o funcionamento de um código desenvolvido para a plataforma Arduino, onde são utilizados três pinos de saída digitais para acionar sinais com intervalos de tempo definidos. O código controla o acionamento de três pinos de saída, ativando-os e desativando-os em tempos diferentes.";
+    
+    document.getElementById("r1-item1").innerHTML = introducao;
+  </script>
   <script src="./relatorio.js"></script>
 </body>
 </html>
