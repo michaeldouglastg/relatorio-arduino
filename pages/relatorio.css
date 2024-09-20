@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: solid 1px black; */
+}
+
+:root {
+  --text-color: rgb(200, 200, 200);
+  --text-color-active: rgb(255, 255, 255);
+  --bg-color: rgba(220, 220, 220, 0.150);
+  --bg-color-light: rgba(50, 50, 50, 0.500);
+  --main-color: rgb(119, 0, 255);
+  --bg-url: url(../assets/bg-desktop.jpg);
+  --bg-url-light: url(../assets/bg-desktop-light.jpg);
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg-url)no-repeat top center/cover;
+}
+
+body * {
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  position: absolute;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  
+  grid-template-columns: 5fr 5fr;
+  grid-template-rows: 1fr 8fr 0.5fr 0.5fr;
+  grid-template-areas:
+    "header header"
+    "slider relatory"
+    "buttons relatory"
+    "footer footer";
+}
+
+
+/*===== Grid header =====*/
+.header {
+  grid-area: header;
+  display: flex;
+  padding: 10px 20px;
+  height: 100%;
+  align-items: center;
+  gap: 10px;
+}
+.menu span{
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: var(--bg-color);
+
+}
+.menu span:nth-child(1) {
+  margin: 0 20px 0 0;
+}
+.menu span a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+.logo img {
+  width: 50px;
+}
+.menu span:hover {
+  color: var(--text-color-active);
+  background: rebeccapurple;
+}
+.menu span a:hover {
+  color: var(--text-color-active);
+}
+/*===== Grid header =====*/
+
+
+/*===== Grid slider =====*/
+.slider {
+  grid-area: slider;
+  position: absolute;
+  inset: 0 15% 0 20px;
+  border-radius: 20px;
+}
+.slider .slides {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: 15%;
+  min-height: 30%;
+  width: 15%;
+  height: 30%;
+  transition: 1s;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  background: var(--img)no-repeat center/cover;
+}
+.slider .slides:nth-child(1),
+.slider .slides:nth-child(2) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  transform: translateY(0);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0);
+}
+.slider .slides:nth-child(3) {
+  top: calc(15% + 0%);
+  right: calc(-16%);
+  background-size: cover;
+
+}
+.slider .slides:nth-child(4) {
+  top: calc(15% + 32%);
+  right: calc(-16%);
+  background-size: cover;
+}
+.slider .slides:nth-child(5) {
+  top: calc(15% + 64%);
+  right: calc(-16%);
+  background-size: cover;
+}
+.slider .slides:nth-child(6) {
+  top: calc(15% + 96%);
+  right: calc(-15%);
+  background-size: cover;
+  opacity: 0;
+}
+/*===== Grid slider =====*/
+
+
+/*== Grid Buttons ==*/
+.buttons {
+  grid-area: buttons;
+  position: relative;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  justify-content: center;
+  z-index: 2;
+}
+.buttons span {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-color);
+  z-index: 2;
+}
+.buttons span::before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-top: 4px solid #fff;
+  border-left: 4px solid #fff;
+  transform: rotate(315deg) translate(2px,2px);
+  z-index: 2;
+}
+.buttons span:nth-child(2)::before {
+  transform: rotate(135deg) translate(2px,2px);
+  z-index: 2;
+}
+.buttons span:active {
+  opacity: 0.5;
+  z-index: 2;
+}
+/*== Grid Buttons ==*/
+
+
+/*===== Grid relatory =====*/
+.relatory {
+  grid-area: relatory;
+  padding: 20px;
+  height: 100%;
+}
+/*== Menu ==*/
+.tab-container {
+  position: relative;
+  display: flex;
+  gap: 5px;
+}
+.tab-button {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  background: var(--bg-color);
+  z-index: 1;
+}
+.tab-button.active {
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-color-active);
+  background: transparent;
+}
+.tab-container.second .tab-background {
+  background: var(--main-color);    
+}
+.tab-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.3s, left 0.3s;
+  background: var(--main-color);
+}
+/*== Menu ==*/
+
+/*== Conteúdo ==*/
+.tab-content {
+  position: relative;
+  margin: 20px 0;
+  height: 90%;
+}
+.ta-tab-item {
+  display: none;
+  padding: 20px;
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 20px;
+  background: var(--bg-color);
+}
+.ta-tab-item ul, ol {
+  padding-left: 20px;
+}
+.ta-tab-item.active {
+  display: block;
+}
+.code {
+  padding: 40px 40px 10px;
+  width: 100%;
+  height: 100%;
+  border-style: none;
+  border-radius: 20px;
+  overflow: hidden;
+  color: var(--text-color);
+  background: rgba(0, 0, 0, 0.200);
+}
+/*== Conteúdo ==*/
+/*===== Grid relatory =====*/
+
+
+/*===== Grid footer =====*/
+.footer {
+  grid-area: footer;
+  padding: 10px;
+  text-align: center;
+  background: var(--bg-color);
+  border-radius: 20px;
+  margin: 20px;
+}
+/*===== Grid footer =====*/
+
+/* mínimo de 320px e máximo de 480px, para dispositivos móveis. Utilizo para potencialidades se necessário mas eu geralmente começo a construir pensando em dispositivos menores para depois ir aumentando de tamanho.
+mínimo de 481px e máximo de 768px, para tablets. 
+mínimo de 769px e máximo de 1024px, para laptops
+mínimo de 1025px e máximo de 1200px, para telas grandes
+mínimo de 1201px, para telas muito grandes. Nesse último colocamos apenas o mínimo para que ele vá de 1201px até a maior tela existente.  
+
+@media (min-width: 481px) and (max-width: 768px) {
+}
+*/
+
+/* Mobile */
+@media (max-width: 768px) {
+  body {
+    width: 100%;
+  }
+
+  .container {
+    display: grid;
+    grid-template-rows: 0.5fr 6fr 1fr 4fr 0.5fr;
+    grid-template-areas: 
+    "header"
+    "slider"
+    "buttons"
+    "relatory"
+    "footer";
+  }
+  
+  .header { grid-area: header; }
+  .slider { grid-area: slider; }
+  .buttons { grid-area: buttons; }
+  .relatory { grid-area: relatory; }
+  .footer { grid-area: footer; }  
+}
