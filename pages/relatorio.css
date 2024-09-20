@@ -2,18 +2,32 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: solid 1px black; */
 }
 
 :root {
   --text-color: rgb(200, 200, 200);
   --text-color-active: rgb(255, 255, 255);
-  --bg-color: rgba(220, 220, 220, 0.150);
-  --bg-color-light: rgba(50, 50, 50, 0.500);
+  --bg-color: rgba(255, 255, 255, 0.05);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
   --main-color: rgb(119, 0, 255);
   --bg-url: url(../assets/bg-desktop.jpg);
-  --bg-url-light: url(../assets/bg-desktop-light.jpg);
+  --switch-bg-url: url(../assets/moon-stars.svg);
 }
+
+.light {
+  --text-color: rgb(50, 50, 50);
+  --text-color-active: rgb(255, 255, 255);
+  --bg-color: rgba(0, 0, 0, 0.05);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --main-color: rgb(119, 0, 255);
+  --bg-url: url(../assets/bg-desktop-light.jpg);
+  --switch-bg-url: url(../assets/sun.svg);
+}
+
 
 body {
   height: 100vh;
@@ -31,10 +45,11 @@ body * {
   display: grid;
   width: 100vw;
   height: 100vh;
+  padding: 0 20px 0 0;
   justify-content: center;
   align-items: center;
   
-  grid-template-columns: 5fr 5fr;
+  grid-template-columns: 5.5fr 4.5fr;
   grid-template-rows: 1fr 8fr 0.5fr 0.5fr;
   grid-template-areas:
     "header header"
@@ -76,6 +91,50 @@ body * {
 .menu span a:hover {
   color: var(--text-color-active);
 }
+
+/*== Switch Button ==*/
+.switch {
+  position: relative;
+  width: 64px;
+  margin: 4px 0 0 auto;
+}
+
+/*Switch*/
+.switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+  animation: slide-back 0.5s forwards;
+}
+
+.light .switch button {
+  animation: slide-in 0.5s forwards;
+}
+
+.switch button:hover {
+  outline: 8px solid var(--surface-color);
+}
+
+.switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+  box-shadow: 0 5px 10px var(--stroke-color);
+}
+/*== Switch Button ==*/
 /*===== Grid header =====*/
 
 
@@ -83,20 +142,21 @@ body * {
 .slider {
   grid-area: slider;
   position: absolute;
-  inset: 0 15% 0 20px;
+  inset: 0 110px 0 20px;
   border-radius: 20px;
+  box-shadow: 0 5px 10px var(--stroke-color);
 }
 .slider .slides {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  min-width: 15%;
+  min-width: 100px;
   min-height: 30%;
-  width: 15%;
+  width: 100px;
   height: 30%;
   transition: 1s;
   border-radius: 20px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 10px var(--stroke-color);
   background: var(--img)no-repeat center/cover;
 }
 .slider .slides:nth-child(1),
@@ -111,24 +171,24 @@ body * {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0);
 }
 .slider .slides:nth-child(3) {
-  top: calc(15% + 0%);
-  right: calc(-16%);
+  top: calc(18% + 0%);
+  right: calc(-110px);
   background-size: cover;
 
 }
 .slider .slides:nth-child(4) {
-  top: calc(15% + 32%);
-  right: calc(-16%);
+  top: calc(18% + 32%);
+  right: calc(-110px);
   background-size: cover;
 }
 .slider .slides:nth-child(5) {
-  top: calc(15% + 64%);
-  right: calc(-16%);
+  top: calc(18% + 64%);
+  right: calc(-110px);
   background-size: cover;
 }
 .slider .slides:nth-child(6) {
-  top: calc(15% + 96%);
-  right: calc(-15%);
+  top: calc(18% + 96%);
+  right: calc(-110px);
   background-size: cover;
   opacity: 0;
 }
@@ -141,7 +201,7 @@ body * {
   position: relative;
   display: flex;
   gap: 10px;
-  padding: 10px;
+  padding: 10px 15% 10px 10px;
   justify-content: center;
   z-index: 2;
 }
@@ -155,13 +215,14 @@ body * {
   border-radius: 50%;
   background: var(--bg-color);
   z-index: 2;
+  box-shadow: 0 5px 10px var(--stroke-color);
 }
 .buttons span::before {
   content: '';
   width: 15px;
   height: 15px;
-  border-top: 4px solid #fff;
-  border-left: 4px solid #fff;
+  border-top: 4px solid var(--stroke-color);
+  border-left: 4px solid var(--text-color);
   transform: rotate(315deg) translate(2px,2px);
   z-index: 2;
 }
@@ -179,8 +240,8 @@ body * {
 /*===== Grid relatory =====*/
 .relatory {
   grid-area: relatory;
-  padding: 20px;
-  height: 100%;
+  position: absolute;
+  inset: 0 20px;
 }
 /*== Menu ==*/
 .tab-container {
@@ -195,6 +256,7 @@ body * {
   border-radius: 15px;
   background: var(--bg-color);
   z-index: 1;
+  box-shadow: 0 5px 10px var(--stroke-color);
 }
 .tab-button.active {
   padding: 0 10px;
@@ -204,7 +266,7 @@ body * {
   background: transparent;
 }
 .tab-container.second .tab-background {
-  background: var(--main-color);    
+  background: var(--main-color);
 }
 .tab-background {
   position: absolute;
@@ -224,13 +286,15 @@ body * {
   height: 90%;
 }
 .ta-tab-item {
+  position: absolute;
   display: none;
+  inset: 10px 0;
   padding: 20px;
-  height: 100%;
   font-size: 16px;
   line-height: 1.5;
   border-radius: 20px;
   background: var(--bg-color);
+  box-shadow: 0 5px 10px var(--stroke-color);
 }
 .ta-tab-item ul, ol {
   padding-left: 20px;
@@ -246,7 +310,7 @@ body * {
   border-radius: 20px;
   overflow: hidden;
   color: var(--text-color);
-  background: rgba(0, 0, 0, 0.200);
+  background: rgba(0, 0, 0, 0.300);
 }
 /*== Conteúdo ==*/
 /*===== Grid relatory =====*/
@@ -260,6 +324,7 @@ body * {
   background: var(--bg-color);
   border-radius: 20px;
   margin: 20px;
+  box-shadow: 0 5px 10px var(--stroke-color);
 }
 /*===== Grid footer =====*/
 
@@ -273,8 +338,37 @@ mínimo de 1201px, para telas muito grandes. Nesse último colocamos apenas o m�
 }
 */
 
+@media {
+  /*Animation*/
+  @keyframes slide-in {
+    from {
+      left:0;
+    } to{
+      left: 50%;
+    }
+  }
+
+  @keyframes slide-back {
+    from {
+      left:50%;
+    } to{
+      left: 0;
+    }
+  }
+}
+  
+
+
 /* Mobile */
 @media (max-width: 768px) {
+  :root {
+    --bg-url: url(../assets/bg-mobile.jpg);
+  }
+
+  .light {
+    --bg-url: url(../assets/bg-mobile-light.jpg);
+  }
+
   body {
     width: 100%;
   }
