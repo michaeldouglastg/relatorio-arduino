@@ -30,6 +30,7 @@
 
 
 body {
+  animation: fadein 2s;
   height: 100vh;
   overflow-x: hidden;
   background: var(--bg-url)no-repeat top center/cover;

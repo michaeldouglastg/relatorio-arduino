@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid red;
+  }
+
+  body {
+    animation: fadein 2s;
+    background: url(../assets/bg-desktop.jpg)) no-repeat top center/cover;
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  body * {
+    font-family: "Inter", sans-serif;
+    color: white;
+  }
+
+  .texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+
+  h1 {
+    position: relative;
+  }
