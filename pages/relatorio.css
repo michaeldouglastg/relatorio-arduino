@@ -356,14 +356,14 @@ mínimo de 1201px, para telas muito grandes. Nesse último colocamos apenas o m�
     }
   }
 }
+
+@media (max-width: 768px) {
   
+}
 
 
 /* Mobile */
 @media (max-width: 768px) {
-  * {
-    border: solid 1px gold;
-  }
   :root {
     --bg-url: url(../assets/bg-mobile.jpg);
   }
@@ -373,13 +373,13 @@ mínimo de 1201px, para telas muito grandes. Nesse último colocamos apenas o m�
   }
 
   body {
-    width: 100vw;
+    background: var(--bg-url)top center/cover;
   }
 
   .container {
     display: grid;
     grid-template-columns: 10fr;
-    grid-template-rows: 1.5fr 80% 10% 50% 0.5fr;
+    grid-template-rows: 1.5fr 80% 10% 70% 0.5fr;
     grid-template-areas: 
     "header"
     "slider"
@@ -408,14 +408,13 @@ mínimo de 1201px, para telas muito grandes. Nesse último colocamos apenas o m�
 
   .switch {
     position: absolute;
-    top: 50px;
+    top: 45px;
     z-index: 1;
   }
   
-
   .slider {
     grid-area: slider;
-    inset: 0 20px 110px;
+    inset: 25px 20px 110px;
   }
 
   .slider .slides {
@@ -427,25 +426,20 @@ mínimo de 1201px, para telas muito grandes. Nesse último colocamos apenas o m�
   .slider .slides:nth-child(3) {
     top: calc(113%);
     right: calc(20px + 0%);
-    border: solid 2px red;
   }
   .slider .slides:nth-child(4) {
     top: calc(113%);
     right: calc(20px + 25%);
-    border: solid 2px rgb(255, 225, 0);
   }
   .slider .slides:nth-child(5) {
     top: calc(113%);
     right: calc(20px + 50%);
-    border: solid 2px rgb(0, 255, 21);
   }
   .slider .slides:nth-child(6) {
     top: calc(113%);
     right: calc(20px + 75%);
-    border: solid 2px rgb(0, 26, 255);
     opacity: 1;
   }
-    
 
   .buttons {
     grid-area: buttons;
@@ -455,14 +449,13 @@ mínimo de 1201px, para telas muito grandes. Nesse último colocamos apenas o m�
 
   .relatory {
     grid-area: relatory;
-    inset: 0 20px;
+    inset: 100px 20px;
     height: 100%;
   }
 
 
-
-
-
-
-  .footer { grid-area: footer; }  
+  .footer {
+    grid-area: footer;
+    height: 100%;
+  }  
 }
