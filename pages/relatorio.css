@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: solid 1px rgb(166, 255, 0);
+  /* border: solid 1px rgb(166, 255, 0); */
 }
 
 :root {
@@ -142,7 +142,7 @@ body * {
 .slider {
   grid-area: slider;
   position: absolute;
-  inset: 0 130px 0 0;
+  inset: 0 140px 0 0;
   border-radius: 20px;
   box-shadow: 0 5px 10px var(--stroke-color);
 }
@@ -156,7 +156,6 @@ body * {
   min-height: 30%;
   transition: 1s;
   border-radius: 20px;
-  box-shadow: 0 5px 10px var(--stroke-color);
   background: var(--img)no-repeat center/cover;
 }
 .slider .slides:nth-child(1),
@@ -214,7 +213,6 @@ body * {
   border-radius: 50%;
   background: var(--bg-color);
   z-index: 1;
-  box-shadow: 0 5px 10px var(--stroke-color);
 }
 .buttons span::before {
   content: '';
@@ -231,11 +229,6 @@ body * {
 }
 .buttons span:active {
   opacity: 0.5;
-  z-index: 1;
-}
-.buttons span:hover {
-  opacity: 0.5;
-  background: var(--main-color);
   z-index: 1;
 }
 /*== Grid Buttons ==*/
@@ -294,7 +287,7 @@ body * {
 /*== Conteúdo ==*/
 .tab-content {
   position: absolute;
-  inset: 60px 0 0 0;
+  inset: 80px 0 0 0;
 }
 .ta-tab-item {
   position: absolute;
@@ -319,11 +312,11 @@ body * {
   height: 100%;
   border-style: none;
   border-radius: 20px;
-  border: solid red;
   overflow: hidden;
   color: var(--text-color);
   background: rgba(0, 0, 0, 0.300);
 }
+/* border: solid red; */
 /*== Conteúdo ==*/
 /*===== Grid relatory =====*/
 
