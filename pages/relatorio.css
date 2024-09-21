@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border: solid 1px rgb(166, 255, 0);
 }
 
 :root {
@@ -31,9 +32,10 @@
 
 body {
   animation: fadein 2s;
-  height: 100vh;
-  overflow-x: hidden;
   background: var(--bg-url)no-repeat top center/cover;
+  background-color: black;
+  height: 100vh;
+  overflow: hidden;
 }
 
 body * {
@@ -44,19 +46,18 @@ body * {
 .container {
   position: absolute;
   display: grid;
-  width: 100vw;
-  height: 100vh;
-  padding: 0 20px 0 0;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: 1920px;
+  padding: 20px;
+  background: var(--bg-url);
   
   grid-template-columns: 5.5fr 4.5fr;
-  grid-template-rows: 1fr 8fr 0.5fr 0.5fr;
+  grid-template-rows: 10% 80% 10%;
   grid-template-areas:
     "header header"
     "slider relatory"
-    "buttons relatory"
-    "footer footer";
+    "buttons relatory";
 }
 
 
@@ -64,8 +65,6 @@ body * {
 .header {
   grid-area: header;
   display: flex;
-  padding: 10px 20px;
-  height: 100%;
   align-items: center;
   gap: 10px;
 }
@@ -73,7 +72,7 @@ body * {
   padding: 5px 10px;
   border-radius: 20px;
   background: var(--bg-color);
-
+  
 }
 .menu span:nth-child(1) {
   margin: 0 20px 0 0;
@@ -107,7 +106,7 @@ body * {
   background: white var(--switch-bg-url) no-repeat center;
   border: 0;
   border-radius: 50%;
-
+  
   position: absolute;
   top: 50%;
   left: 0;
@@ -143,7 +142,7 @@ body * {
 .slider {
   grid-area: slider;
   position: absolute;
-  inset: 0 110px 0 20px;
+  inset: 0 130px 0 0;
   border-radius: 20px;
   box-shadow: 0 5px 10px var(--stroke-color);
 }
@@ -151,10 +150,10 @@ body * {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  width: 130px;
+  height: 30%;
   min-width: 100px;
   min-height: 30%;
-  width: 100px;
-  height: 30%;
   transition: 1s;
   border-radius: 20px;
   box-shadow: 0 5px 10px var(--stroke-color);
@@ -173,23 +172,23 @@ body * {
 }
 .slider .slides:nth-child(3) {
   top: calc(18% + 0%);
-  right: calc(-110px);
+  right: calc(-140px);
   background-size: cover;
-
+  
 }
 .slider .slides:nth-child(4) {
   top: calc(18% + 32%);
-  right: calc(-110px);
+  right: calc(-140px);
   background-size: cover;
 }
 .slider .slides:nth-child(5) {
   top: calc(18% + 64%);
-  right: calc(-110px);
+  right: calc(-140px);
   background-size: cover;
 }
 .slider .slides:nth-child(6) {
   top: calc(18% + 96%);
-  right: calc(-110px);
+  right: calc(-140px);
   background-size: cover;
   opacity: 0;
 }
@@ -201,10 +200,9 @@ body * {
   grid-area: buttons;
   position: relative;
   display: flex;
-  gap: 10px;
-  padding: 10px 15% 10px 10px;
+  gap: 50px;
+  padding: 10px;
   justify-content: center;
-  z-index: 2;
 }
 .buttons span {
   display: flex;
@@ -215,7 +213,7 @@ body * {
   justify-content: center;
   border-radius: 50%;
   background: var(--bg-color);
-  z-index: 2;
+  z-index: 1;
   box-shadow: 0 5px 10px var(--stroke-color);
 }
 .buttons span::before {
@@ -225,7 +223,7 @@ body * {
   border-top: 4px solid var(--stroke-color);
   border-left: 4px solid var(--text-color);
   transform: rotate(315deg) translate(2px,2px);
-  z-index: 2;
+  z-index: 1;
 }
 .buttons span:nth-child(2)::before {
   transform: rotate(135deg) translate(2px,2px);
@@ -233,7 +231,12 @@ body * {
 }
 .buttons span:active {
   opacity: 0.5;
-  z-index: 2;
+  z-index: 1;
+}
+.buttons span:hover {
+  opacity: 0.5;
+  background: var(--main-color);
+  z-index: 1;
 }
 /*== Grid Buttons ==*/
 
@@ -242,25 +245,32 @@ body * {
 .relatory {
   grid-area: relatory;
   position: absolute;
-  inset: 0 20px;
+  inset: 0 0 0 20px;
 }
 /*== Menu ==*/
+
+.tab .button:wrap {
+  
+}
+
 .tab-container {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   gap: 5px;
+  align-items: center;
+  justify-content: center;
 }
 .tab-button {
-  padding: 5px 10px;
+  padding: 5px 15px;
   cursor: pointer;
+  z-index: 1;
   border: none;
   border-radius: 15px;
   background: var(--bg-color);
-  z-index: 1;
-  box-shadow: 0 5px 10px var(--stroke-color);
 }
 .tab-button.active {
-  padding: 0 10px;
+  padding: 5 15px;
   font-size: 14px;
   font-weight: bold;
   color: var(--text-color-active);
@@ -271,9 +281,10 @@ body * {
 }
 .tab-background {
   position: absolute;
+  flex-wrap: wrap;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 50%;
   border-radius: 20px;
   transition: width 0.3s, left 0.3s;
   background: var(--main-color);
@@ -282,14 +293,13 @@ body * {
 
 /*== Conteúdo ==*/
 .tab-content {
-  position: relative;
-  margin: 20px 0;
-  height: 90%;
+  position: absolute;
+  inset: 60px 0 0 0;
 }
 .ta-tab-item {
   position: absolute;
   display: none;
-  inset: 10px 0;
+  inset: 0 0;
   padding: 20px;
   font-size: 16px;
   line-height: 1.5;
@@ -309,6 +319,7 @@ body * {
   height: 100%;
   border-style: none;
   border-radius: 20px;
+  border: solid red;
   overflow: hidden;
   color: var(--text-color);
   background: rgba(0, 0, 0, 0.300);
@@ -318,7 +329,7 @@ body * {
 
 
 /*===== Grid footer =====*/
-.footer {
+/* .footer {
   grid-area: footer;
   padding: 10px;
   text-align: center;
@@ -326,23 +337,23 @@ body * {
   border-radius: 20px;
   margin: 20px;
   box-shadow: 0 5px 10px var(--stroke-color);
-}
-/*===== Grid footer =====*/
-
-/* mínimo de 320px e máximo de 480px, para dispositivos móveis. Utilizo para potencialidades se necessário mas eu geralmente começo a construir pensando em dispositivos menores para depois ir aumentando de tamanho.
-mínimo de 481px e máximo de 768px, para tablets. 
-mínimo de 769px e máximo de 1024px, para laptops
-mínimo de 1025px e máximo de 1200px, para telas grandes
-mínimo de 1201px, para telas muito grandes. Nesse último colocamos apenas o mínimo para que ele vá de 1201px até a maior tela existente.  
+  } */
+  /*===== Grid footer =====*/
+  
+  /* mínimo de 320px e máximo de 480px, para dispositivos móveis. Utilizo para potencialidades se necessário mas eu geralmente começo a construir pensando em dispositivos menores para depois ir aumentando de tamanho.
+  mínimo de 481px e máximo de 768px, para tablets. 
+  mínimo de 769px e máximo de 1024px, para laptops
+  mínimo de 1025px e máximo de 1200px, para telas grandes
+  mínimo de 1201px, para telas muito grandes. Nesse último colocamos apenas o mínimo para que ele vá de 1201px até a maior tela existente.  
 
 @media (min-width: 481px) and (max-width: 768px) {
-}
-*/
-
-@media {
-  /*Animation*/
-  @keyframes slide-in {
-    from {
+  }
+  */
+  
+  @media {
+    /*Animation*/
+    @keyframes slide-in {
+      from {
       left:0;
     } to{
       left: 50%;
@@ -455,8 +466,8 @@ mínimo de 1201px, para telas muito grandes. Nesse último colocamos apenas o m�
   }
 
 
-  .footer {
+  /* .footer {
     grid-area: footer;
     height: 100%;
-  }  
+  }   */
 }
