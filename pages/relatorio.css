@@ -241,11 +241,6 @@ body * {
   inset: 0 0 0 20px;
 }
 /*== Menu ==*/
-
-.tab .button:wrap {
-  
-}
-
 .tab-container {
   position: relative;
   display: flex;
@@ -343,16 +338,16 @@ body * {
   }
   */
   
-  @media {
-    /*Animation*/
-    @keyframes slide-in {
-      from {
-      left:0;
+@media {
+  /*Animation*/
+  @keyframes slide-in {
+    from {
+    left:0;
     } to{
-      left: 50%;
+    left: 50%;
     }
   }
-
+  
   @keyframes slide-back {
     from {
       left:50%;
@@ -457,10 +452,4 @@ body * {
     inset: 100px 20px;
     height: 100%;
   }
-
-
-  /* .footer {
-    grid-area: footer;
-    height: 100%;
-  }   */
 }
