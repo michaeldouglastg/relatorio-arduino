@@ -1,0 +1,73 @@
+.header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.menu span{
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: var(--bg-color);
+  
+}
+.menu span:nth-child(1) {
+  margin: 0 20px 0 0;
+}
+.menu span a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+.logo img {
+  width: 50px;
+}
+.menu span:hover {
+  color: var(--text-color-active);
+  background: rebeccapurple;
+}
+.menu span a:hover {
+  color: var(--text-color-active);
+}
+
+/*== Switch Button ==*/
+.switch {
+  position: relative;
+  width: 64px;
+  margin: 4px 0 0 auto;
+}
+
+/*Switch*/
+.switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+  animation: slide-back 0.5s forwards;
+}
+
+.light .switch button {
+  animation: slide-in 0.5s forwards;
+}
+
+.switch button:hover {
+  outline: 8px solid var(--surface-color);
+}
+
+.switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+  box-shadow: 0 5px 10px var(--stroke-color);
+}
+/*== Switch Button ==*/

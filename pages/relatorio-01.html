@@ -3,12 +3,14 @@
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Relatório</title>
+  <title>Relatório 01 | Semáforo</title>
+  <link rel="stylesheet" href="../styles/fade.css">
+  <link rel="stylesheet" href="../styles/relatorio.css">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../fade.css">
-  <link rel="stylesheet" href="./relatorio.css">
 </head>
 <body>
   <div class="container">
@@ -55,7 +57,30 @@
     </div>
 
     <div class="relatory">
+      <h3>Titulo</h3>
       <div class="tab-container">
+        <!-- <div class="left-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+          </svg>          
+        </div>
+        <ul>
+          <li class="tab-button active" data-tab="1">Introdução</li>
+          <li class="tab-button" data-tab="2">Objetivos</li>
+          <li class="tab-button" data-tab="3">Materiais</li>
+          <li class="tab-button" data-tab="4">Ligações</li>
+          <li class="tab-button" data-tab="5">Estrutura</li>
+          <li class="tab-button" data-tab="6">Funções</li>
+          <li class="tab-button" data-tab="7">Funcionamento</li>
+          <li class="tab-button" data-tab="8">Código</li>
+        </ul>
+        <div class="right-arrow active">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          </svg>
+        </div> -->
+
+
         <button class="tab-button active" data-tab="1">Introdução</button>
         <button class="tab-button" data-tab="2">Objetivos</button>
         <button class="tab-button" data-tab="3">Materiais</button>
@@ -65,6 +90,8 @@
         <button class="tab-button" data-tab="7">Funcionamento</button>
         <button class="tab-button" data-tab="8">Código</button>
         <div class="tab-background"></div>
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                
       </div>
 
       <div class="tab-content">
@@ -141,10 +168,7 @@ digitalWrite(2, LOW);
         </div>
       </div>
     </div>
-    
-    <!-- <div class="footer">
-      <p>Relatório das aulas práticas realizada em sala</p>
-    </div> -->
+
   </div>
   <script src="./relatorio.js"></script>
 </body>

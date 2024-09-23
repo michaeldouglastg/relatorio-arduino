@@ -1,0 +1,36 @@
+.buttons {
+  grid-area: buttons;
+  position: relative;
+  display: flex;
+  gap: 50px;
+  padding: 10px 140px 10px 0;
+  justify-content: center;
+}
+.buttons span {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-color);
+  z-index: 1;
+}
+.buttons span::before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-top: 4px solid var(--stroke-color);
+  border-left: 4px solid var(--text-color);
+  transform: rotate(315deg) translate(2px,2px);
+  z-index: 1;
+}
+.buttons span:nth-child(2)::before {
+  transform: rotate(135deg) translate(2px,2px);
+  z-index: 2;
+}
+.buttons span:active {
+  opacity: 0.5;
+  z-index: 1;
+}
