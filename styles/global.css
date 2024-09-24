@@ -2,29 +2,33 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: solid 1px rgb(166, 255, 0); */
+  /* border: solid 1px yellow; */
 }
 
 :root {
-  --text-color: rgb(200, 200, 200);
-  --text-color-active: rgb(255, 255, 255);
+  --main-color: rgb(119, 0, 255);
   --bg-color: rgba(255, 255, 255, 0.05);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
-  --main-color: rgb(119, 0, 255);
+  
+  --text-color: rgb(200, 200, 200);
+  --text-color-active: rgb(255, 255, 255);
+  
   --bg-url: url(../assets/bg-desktop.jpg);
   --switch-bg-url: url(../assets/moon-stars.svg);
 }
 
 .light {
-  --text-color: rgb(50, 50, 50);
-  --text-color-active: rgb(255, 255, 255);
+  --main-color: rgb(119, 0, 255);
   --bg-color: rgba(0, 0, 0, 0.05);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
-  --main-color: rgb(119, 0, 255);
+  
+  --text-color: rgb(50, 50, 50);
+  --text-color-active: rgb(255, 255, 255);
+  
   --bg-url: url(../assets/bg-desktop-light.jpg);
   --switch-bg-url: url(../assets/sun.svg);
 }
@@ -32,10 +36,11 @@
 
 body {
   animation: fadein 2s;
-
-  background-color: black;
   height: 100vh;
   overflow: hidden;
+  background: var(--bg-url)no-repeat top center/cover;
+  
+  
 }
 
 body * {
@@ -50,8 +55,7 @@ body * {
   height: 100%;
   max-width: 1920px;
   padding: 20px;
-  background: var(--bg-url)no-repeat top center/cover;
-  
+ 
   grid-template-columns: 5.5fr 4.5fr;
   grid-template-rows: 10% 80% 10%;
   grid-template-areas:

@@ -8,7 +8,6 @@
   text-align: center;
   padding-block: 10px;
   color: var(--text-color-active);
-  overflow: hidden;
 }
 /*== Menu ==*/
 .tab-container {

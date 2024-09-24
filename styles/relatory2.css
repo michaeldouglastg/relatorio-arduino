@@ -7,7 +7,7 @@
 .relatory h3 {
   text-align: center;
   padding-block: 10px;
-  color: var(--text-color-active);
+  color: var(--text-color);
   overflow: hidden;
 }
 
@@ -15,63 +15,73 @@
 /*== Menu ==*/
 .tab-container {
   position: relative;
-  margin: 16px auto;
   max-width: 700px;
-  gap: 16px;
-  border-radius: 10px;
-  background-color: black;
+  margin: 20px auto;
+  border-radius: 50px;
   overflow: hidden;
 }
 
 .tab-container svg {
+  width: 40px;
+  height: 40px;
   padding: 8px;
-  width: 35px;
-  height: 35px;
-  color: white;
   cursor: pointer;
+  color: var(--text-color-active);
   border-radius: 50%;
+  pointer-events: auto;
 }
 
 .tab-container ul {
   display: flex;
-  margin: 0;
+  gap: 5px;
   padding: 12px 24px;
-  gap: 16px;
+  margin: 0;
+  list-style: none;
   overflow-x: scroll;
-  scrollbar-width: none;
   -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.tab-container ul.dragging button {
+  pointer-events: none;
+}
+
+.tab-container ul.dragging {
+  scroll-behavior: auto;
 }
 
 .tab-container ul::-webkit-scrollbar {
   display: none;
 }
 
-.tab-container ul li {
+.tab-container button {
+  color: var(--text-color);
+  text-decoration: none;
+  background: rgba(102, 51, 153, 0.500);
+  padding: 5px 10px;
   display: inline-block;
-  padding: 4px 24px;
-  border-radius: 10px;
-  list-style: none;
+  border-radius: 50px;
   user-select: none;
   white-space: nowrap;
-  color: rebeccapurple;
-  background-color: #333;
+  border: none;
 }
 
-.tab-container ul li.active {
-  color: white;
-  background-color: rebeccapurple;
+.tab-container button.active {
+  background: var(--main-color);
+  color: var(--text-color-active);
 }
 
 .tab-container .right-arrow,
 .tab-container .left-arrow {
   position: absolute;
-  display: none;
-  padding: 0 10px;
-  top: 0;
-  width: 100px;
   height: 100%;
+  width: 100px;
+  top: 0;
+  display: none;
   align-items: center;
-
+  padding: 0 10px;
+  pointer-events: none;
 }
 
 .tab-container .right-arrow.active,
@@ -81,24 +91,26 @@
 
 .tab-container .right-arrow {
   right: 0;
-  background: linear-gradient(to left, black 50%, transparent);
+  background: linear-gradient(to left, var(--main-color) 20%, transparent);
   justify-content: flex-end;
 }
 
 .tab-container .left-arrow {
-  background: linear-gradient(to right, black 50%, transparent);
+  background: linear-gradient(to right, var(--main-color) 20%, transparent);
 }
 
 .tab-container svg:hover {
-  background: rebeccapurple;
+  width: 45px;
+  height: 45px;
+  color: var(--main-color);
 }
-/*== Menu ==*/
 
+/*== Menu ==*/
 
 /*== Conteúdo ==*/
 .tab-content {
   position: absolute;
-  inset: 110px 0 0 0;
+  inset: 120px 0 0 0;
 }
 .ta-tab-item {
   position: absolute;

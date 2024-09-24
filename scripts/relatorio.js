@@ -17,9 +17,6 @@ function toggleMode() {
   }
 
 
-
-
-
 //Buttons Slider
 let next = document.querySelector('.next');
 let prev = document.querySelector('.prev');
@@ -36,10 +33,7 @@ prev.addEventListener('click', function(){
 })
 
 
-
-
-
-//Função do Botões de Navegação
+// Função do Botões de Navegação
 function initializeTabContainer(tabContainer) {
   const tabButtons = tabContainer.querySelectorAll('.tab-button');
   const tabBackground = tabContainer.querySelector('.tab-background');
@@ -100,8 +94,10 @@ document.querySelectorAll('.tab-container').forEach(initializeTabContainer);
 
 
 
+
+
 //Horizontal Slider Nav
-const tabs = document.querySelectorAll(".tab-container li");
+const tabs = document.querySelectorAll(".tab-container button");
 const rightArrow = document.querySelector(
   ".tab-container .right-arrow svg"
 );
