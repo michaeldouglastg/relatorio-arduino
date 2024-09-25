@@ -81,6 +81,7 @@ body * {
   .container {
     display: grid;
     overflow: auto;
+    padding: 5px;
     grid-template-columns: 10fr;
     grid-template-rows: 1.5fr 80% 10% 90%;
     grid-template-areas: 

@@ -57,5 +57,7 @@
     grid-area: buttons;
     padding: 20px 10px;
     inset: 20px auto;
+    background-color: transparent;
+    box-shadow: 0 5px 10px transparent;
   }
 }

@@ -163,6 +163,23 @@ footer {
   font-size: 14px;
 }
 
+/*Animation*/
+@keyframes slide-in {
+  from {
+    left:0;
+  } to{
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left:50%;
+  } to{
+    left: 0;
+  }
+}
+
 /*Media Queries*/
 @media (min-width: 700px) {
   :root {
@@ -171,22 +188,5 @@ footer {
 
   .light {
     --bg-url: url(../assets/bg-desktop-light.jpg);
-  }
-
-  /*Animation*/
-  @keyframes slide-in {
-    from {
-      left:0;
-    } to{
-      left: 50%;
-    }
-  }
-
-  @keyframes slide-back {
-    from {
-      left:50%;
-    } to{
-      left: 0;
-    }
   }
 }
