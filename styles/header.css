@@ -84,6 +84,10 @@
     margin: 0 0 0 0;
   }
 
+  .menu span {
+    font-size: 0.8rem;
+  }
+
   .header .logo {
     position: absolute;
     z-index: -1;
