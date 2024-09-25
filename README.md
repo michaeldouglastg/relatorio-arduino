@@ -17,7 +17,7 @@ Projeto desenvolvido para apresentação de relatório de aulas prática com ard
 <br>
 
 <p align="center">
-  <img alt="Projeto Relatório" src=".github/preview.png" width="100%">
+  <img alt="Projeto Relatório" src=".github/Github Preview.jpg" width="100%">
 </p>
 
 ## 🚀 Tecnologias
