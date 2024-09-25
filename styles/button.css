@@ -2,9 +2,14 @@
   grid-area: buttons;
   position: relative;
   display: flex;
-  gap: 50px;
+  gap: 20px;
+  margin: 20px 0 0 0;
+  border-radius: 20px;
   padding: 10px 140px 10px 0;
   justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+  box-shadow: 0 5px 10px var(--stroke-color);
 }
 .buttons span {
   display: flex;
@@ -26,6 +31,17 @@
   transform: rotate(315deg) translate(2px,2px);
   z-index: 1;
 }
+
+.buttons span::before:hover {
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-top: 4px solid var(--main-color);
+  border-left: 4px solid var(--main-color);
+  transform: rotate(315deg) translate(2px,2px);
+  z-index: 1;
+}
+
 .buttons span:nth-child(2)::before {
   transform: rotate(135deg) translate(2px,2px);
   z-index: 2;
@@ -33,4 +49,13 @@
 .buttons span:active {
   opacity: 0.5;
   z-index: 1;
+}
+
+
+@media (max-width: 768px) {
+  .buttons {
+    grid-area: buttons;
+    padding: 20px 10px;
+    inset: 20px auto;
+  }
 }

@@ -6,7 +6,7 @@
 
 .relatory h3 {
   text-align: center;
-  padding-block: 10px;
+  padding-block: 5px;
   color: var(--text-color);
   overflow: hidden;
 }
@@ -16,7 +16,7 @@
 .tab-container {
   position: relative;
   max-width: 700px;
-  margin: 20px auto;
+  margin: 5px auto;
   border-radius: 50px;
   overflow: hidden;
 }
@@ -110,7 +110,7 @@
 /*== Conteúdo ==*/
 .tab-content {
   position: absolute;
-  inset: 120px 0 0 0;
+  inset: 100px 0 0 0;
 }
 .ta-tab-item {
   position: absolute;
@@ -140,3 +140,12 @@
   background: rgba(0, 0, 0, 0.300);
 }
 /*== Conteúdo ==*/
+
+
+@media (max-width: 768px) {
+  .relatory {
+    grid-area: relatory;
+    inset: 50px 20px;
+    height: 90%;
+  }
+}

@@ -13,6 +13,7 @@
   --surface-color-hover: rgba(0, 0, 0, 0.02);
   
   --text-color: rgb(200, 200, 200);
+  --text-color-inv: rgb(200, 200, 200);
   --text-color-active: rgb(255, 255, 255);
   
   --bg-url: url(../assets/bg-desktop.jpg);
@@ -62,4 +63,30 @@ body * {
     "header header"
     "slider relatory"
     "buttons relatory";
+}
+
+@media (max-width: 768px) {
+  :root {
+    --bg-url: url(../assets/bg-mobile.jpg);
+  }
+
+  .light {
+    --bg-url: url(../assets/bg-mobile-light.jpg);
+  }
+
+  body {
+    background: var(--bg-url)top center/cover;
+  }
+  
+  .container {
+    display: grid;
+    overflow: auto;
+    grid-template-columns: 10fr;
+    grid-template-rows: 1.5fr 80% 10% 90%;
+    grid-template-areas: 
+    "header"
+    "slider"
+    "buttons"
+    "relatory";
+  }
 }
